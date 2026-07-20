@@ -42,7 +42,7 @@ Bash
 cp .env.template .env
 ```
 
-Заполните параметры в файле .env, используя следующий образец:
+Заполните параметры в файле ai_api_backend/.env, используя следующий образец:
 ---
 ```text
 # llm settings
@@ -62,6 +62,11 @@ AUTH__JWT_REFRESH_EXPIRES_MIN=60
 
 # server settings
 SERVER__PORT=5055
+```
+Заполните параметры в файле ai_frontend/.env, используя следующий образец:
+---
+```text
+VITE_API_URL=http://localhost:5055
 ```
 🚀 Локальный запуск через Docker
 ---
