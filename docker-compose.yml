@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+
+  ai_api_backend:
+    container_name: ai_api_backend
+    build:
+      context: ./ai_api_backend
+      dockerfile: Dockerfile
+    ports:
+      - "5055:5055"
+    command: sh -c "alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 5055"
+    restart: always
+    env_file:
+      - ./ai_api_backend/.env
+    volumes:
+      - .:/ai_api_backend_db/
+
+  ai_api_frontend:
+    container_name: ai_api_frontend
+    build:
+      context: ./ai_frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    restart: always
+    depends_on:
+      - ai_api_backend

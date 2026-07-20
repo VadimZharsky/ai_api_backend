@@ -1,0 +1,42 @@
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = "py314"
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = [
+    "E",       # pycodestyle errors
+    "F",       # pyflakes
+    "I",       # isort (импорты)
+    "N",       # pep8-naming (правильные имена переменных/классов)
+    "UP",      # pyupgrade (современный синтаксис Python) 🚀 МАСТХЭВ
+    "B",       # flake8-bugbear (поиск логических багов) 🚀 МАСТХЭВ
+    "PIE",     # flake8-pie
+    "PLE",     # pylint errors
+    "RUF",     # Ruff-specific rules (лучше включить все RUF, а не только RUF100)
+    "PGH004",  # blanket noqa comments
+    "C4",      # flake8-comprehensions
+    "SIM",     # flake8-simplify (включаем всю группу, она отличная)
+    "RET",     # flake8-return (включаем всю группу)
+    "ANN",     # flake8-annotations (требует явных типов)
+]
+
+ignore = [
+    "ANN401",
+    "ANN001",
+]
+
+[tool.pyright]
+pythonVersion = "3.14"
+reportExplicitAny = false
+typeCheckingMode = "recommended"
+
+[tool.mypy]
+ignore_missing_imports = true
+follow_untyped_imports = true
+warn_return_any = true
+disallow_untyped_defs = true
+explicit_package_bases = true

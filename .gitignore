@@ -1,0 +1,10 @@
+# files
+/.env
+*.py[cod]
+*.db
+# directories
+/db/
+/.idea/
+/.venv/
+__pycache__/
+/logs/
